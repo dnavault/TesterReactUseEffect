@@ -8,6 +8,7 @@ body {
   background-repeat: repeat;
   padding: 0;
   margin: 0;
+  font-size: 9pt;
 }
 #root {
   width: 100vw;
@@ -72,4 +73,23 @@ p:nth-child(2) {
     margin: 1rem;
     width: 300px;
   }
+}
+
+.employee-image {
+  border-radius: 25% 10%;
+}
+
+.text-wrap-img {
+  float: left;
+  margin: 5px;
+}
+
+.employeeEmail::before {
+  content: "Email:";
+  margin-right: 5px;
+}
+
+.employeeCompany::before {
+  content: "Company:";
+  margin-right: 5px;
 }
