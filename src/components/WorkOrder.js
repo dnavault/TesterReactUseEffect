@@ -2,7 +2,7 @@
 // Step 8 - Use passed props in MovieCard to render film data
 import React from "react";
 
-const MovieCard = ({ film }) => {
+const WorkOrder = ({ workorder }) => {
   // const film = props.film
   // const { film } = props
 
@@ -21,14 +21,10 @@ const MovieCard = ({ film }) => {
     <div className="film-list">
       {/* Use dot notation to get key/value from film since it's an object*/}
 
-      <h2>{film.title}</h2>
-      <p>{film.description}</p>
-      <div className="bottom">
-        <p>Director: {film.director}</p>
-        <p>Release Date: {film.release_date} </p>
-      </div>
+      <h2>{workorder.name}</h2>
+      <p>{workorder.description}</p>
     </div>
   );
 };
 
-export default MovieCard;
+export default WorkOrder;

@@ -6,9 +6,10 @@
 // Step 9 - Fix key error with each MovieCard
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import MovieCard from "./MovieCard";
+import WorkOrder from "./WorkOrder";
+import Employee from "./Employee";
 
-export default function MovieList() {
+export default function WorkOrderList() {
   /*
   Convention: API requests should be captured in useEffect effect funtion and response
   should be stored in state. This state variable will be set to a default value - often
@@ -23,23 +24,23 @@ export default function MovieList() {
 
   // 1. starts reading component top to bottom
   // 6. state change causes MovieList component to rerender. films === array of films from API
-  const [films, setFilms] = useState([]);
+  const [workorders, setWorkOrders] = useState([]);
 
-  const effectFn = () => {
+  const getWorkOrders = () => {
     // 4. the effect fn is pulled from the waiting room and fired!
     axios
-      .get("https://ghibliapi.herokuapp.com/films")
-      .then(response => {
-        console.log(response);
+      .get(`https://api.hatchways.io/assessment/work_orders`)
+      .then((response) => {
+        //console.log(response.data.orders);
         // 5. STATE CHANGE! update films to Array of film objs
-        setFilms(response.data); // response.data = Array[film objs]
+        setWorkOrders(response.data.orders); // response.data = Array[film objs]
       })
-      .catch(error => console.log(error));
+      .catch((error) => console.log(error));
   };
 
   // 2. sees useEffect hook & queues like a waiting room the effect fn (first param)
   // 7. useEffect has dependency array of [], so effectFn IS NOT QUEUED.
-  useEffect(effectFn, []);
+  useEffect(getWorkOrders, []);
   /*
   Dependency Arrays in useEffect:
   [] --> Means that we will only call the effect fn ONCE, directly after the initial render
@@ -52,8 +53,11 @@ export default function MovieList() {
   // 8. component renders with films === [film objs]. NO EFFECTFN is called b/c of dependency array []
   return (
     <div className="film">
-      {films.map(film => (
-        <MovieCard key={film.id} film={film} />
+      {workorders.map((workorder) => (
+        <div>
+          <WorkOrder key={workorder.id} workorder={workorder} />
+          <Employee employeeId={workorder.workerId} />
+        </div>
       ))}
     </div>
   );
