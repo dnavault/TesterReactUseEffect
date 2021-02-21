@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import WorkOrder from "./WorkOrder";
-import Employee from "./Employee";
 import Switch from "@material-ui/core/Switch";
 
 export default function WorkOrderList() {
@@ -22,8 +21,7 @@ export default function WorkOrderList() {
   };
 
   const onChangeFilter = (event) => {
-    const search = event.target.value;
-    setFilter(search);
+    setFilter(event.target.value);
   };
 
   const getWorkOrders = () => {
@@ -71,8 +69,7 @@ export default function WorkOrderList() {
           .sort(checked ? sortByLatestDeadline : sortByEarliestDeadline)
           .map((workorder) => (
             <div>
-              <WorkOrder key={workorder.id} workorder={workorder} />
-              <Employee employeeId={workorder.workerId} />
+              <WorkOrder key={workorder.id} workorder={workorder}></WorkOrder>
             </div>
           ))
           .sort()}

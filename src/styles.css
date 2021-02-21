@@ -1,9 +1,8 @@
 @import url("https://fonts.googleapis.com/css?family=Playfair+Display:700i|Source+Sans+Pro&display=swap");
 body {
-  font-family: "Source Sans Pro", sans-serif;
+  font-family: "Arial";
   overflow-x: hidden;
-  padding: 0;
-  margin: 0;
+  margin: 10px;
   font-size: 9pt;
 }
 #root {
@@ -36,17 +35,39 @@ h2 {
 }
 .work-order {
   display: grid;
-  grid-gap: 100px;
+  grid-gap: 150px;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   margin: 20px auto;
   max-width: 900px;
+  font-size: 9pt;
+  padding: 15px;
 }
+
+.work-order-header {
+  display: flex;
+  justify-content: flex-end;
+  margin-left: 5px;
+  margin-top: 15px;
+}
+
+.seperator {
+  flex-grow: 1;
+}
+
+.work-order-name {
+  align-items: flex-start;
+}
+
+.work-order-deadline {
+  margin-right: 5px;
+  font-weight: bold;
+}
+
 .work-order-list {
   color: white;
-  text-align: center;
   font-weight: bold;
   background: #bcc8c1;
-  height: auto;
+  height: 200px;
   border-radius: 4px;
   box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
   background: rgb(5, 0, 246);
@@ -99,13 +120,11 @@ p:nth-child(2) {
   margin-right: 5px;
 }
 
-.work-order-deadline {
-  text-align: right;
-  margin-right: 5px;
-  font-weight: bold;
-}
-
 .sort-by-latest:before {
   content: "Sort by latest:";
   margin-right: 5px;
+}
+
+.employeeItem {
+  text-align: left;
 }
