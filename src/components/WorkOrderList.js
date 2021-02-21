@@ -2,19 +2,28 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import WorkOrder from "./WorkOrder";
 import Employee from "./Employee";
+import Switch from "@material-ui/core/Switch";
 
 export default function WorkOrderList() {
   const [workorders, setWorkOrders] = useState([]);
   const [filter, setFilter] = useState("");
-  const [sortByLatest, setSortByLatest] = useState(true);
+  const [checked, setChecked] = useState(true);
 
-  const onChangeFilter = (evt) => {
-    const search = evt.target.value;
-    setFilter(search);
+  const handleChangeSortByLatest = (event) => {
+    setChecked(event.target.checked);
   };
 
-  const onClickSortByLatest = (evt) => {
-    console.log("here");
+  const sortByLatestDeadline = (a, b) => {
+    return b.deadline > a.deadline ? 1 : -1;
+  };
+
+  const sortByEarliestDeadline = (a, b) => {
+    return a.deadline > b.deadline ? 1 : -1;
+  };
+
+  const onChangeFilter = (event) => {
+    const search = event.target.value;
+    setFilter(search);
   };
 
   const getWorkOrders = () => {
@@ -22,7 +31,6 @@ export default function WorkOrderList() {
       .get(`https://api.hatchways.io/assessment/work_orders`)
       .then((response) => {
         setWorkOrders(response.data.orders);
-        console.log(response.data.orders.length);
       })
       .catch((error) => console.log(error));
   };
@@ -30,6 +38,7 @@ export default function WorkOrderList() {
 
   return (
     <>
+      {console.log(checked)}
       <div>
         <input
           class="input-name"
@@ -39,7 +48,13 @@ export default function WorkOrderList() {
           onChange={(e) => onChangeFilter(e)}
         />
       </div>
-      <div className="sort-by-latest"></div>
+      <div className="sort-by-latest">
+        <Switch
+          checked={checked}
+          onChange={(e) => handleChangeSortByLatest(e)}
+          name="checked"
+        />
+      </div>
       <div className="work-order">
         {workorders
           .filter((data) => {
@@ -53,12 +68,14 @@ export default function WorkOrderList() {
               }
             }
           })
+          .sort(checked ? sortByLatestDeadline : sortByEarliestDeadline)
           .map((workorder) => (
             <div>
               <WorkOrder key={workorder.id} workorder={workorder} />
               <Employee employeeId={workorder.workerId} />
             </div>
-          ))}
+          ))
+          .sort()}
       </div>
     </>
   );

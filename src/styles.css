@@ -2,17 +2,13 @@
 body {
   font-family: "Source Sans Pro", sans-serif;
   overflow-x: hidden;
-  background-color: #0e146e;
-  background-image: url("http://studioghiblimovies.com/wp-content/uploads/2016/04/46393_1_other_anime_studio_ghibli.jpg");
-  background-size: stretch;
-  background-repeat: repeat;
   padding: 0;
   margin: 0;
   font-size: 9pt;
 }
 #root {
   width: 100vw;
-  height: 100vh;
+  height: 75vh;
   color: #2a2223;
   margin: 0;
 }
