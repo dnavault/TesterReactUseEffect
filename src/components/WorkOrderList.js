@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import WorkOrder from "./WorkOrder";
 import Employee from "./Employee";
-import SortByLatestToggleButton from "../components/SortByLatestToggleButton";
 
 export default function WorkOrderList() {
   const [workorders, setWorkOrders] = useState([]);
@@ -15,7 +14,7 @@ export default function WorkOrderList() {
   };
 
   const onClickSortByLatest = (evt) => {
-    console.log(evt);
+    console.log("here");
   };
 
   const getWorkOrders = () => {
@@ -23,7 +22,7 @@ export default function WorkOrderList() {
       .get(`https://api.hatchways.io/assessment/work_orders`)
       .then((response) => {
         setWorkOrders(response.data.orders);
-        console.log(response.data.orders);
+        console.log(response.data.orders.length);
       })
       .catch((error) => console.log(error));
   };
@@ -40,9 +39,7 @@ export default function WorkOrderList() {
           onChange={(e) => onChangeFilter(e)}
         />
       </div>
-      <div className="sort-by-latest">
-        <SortByLatestToggleButton onClick={(e) => onClickSortByLatest(e)} />
-      </div>
+      <div className="sort-by-latest"></div>
       <div className="work-order">
         {workorders
           .filter((data) => {
