@@ -33,24 +33,33 @@ h1 {
   width: 250px;
 }
 h2 {
-  color: #474747;
+  color: white;
   font-size: 25px;
-  background: #2eb29a;
   margin: 0;
   padding: 10px;
 }
-.film {
+.work-order {
   display: grid;
-  grid-gap: 20px;
+  grid-gap: 100px;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   margin: 20px auto;
   max-width: 900px;
 }
-.film-list {
+.work-order-list {
+  color: white;
+  text-align: center;
+  font-weight: bold;
   background: #bcc8c1;
   height: auto;
   border-radius: 4px;
   box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+  background: rgb(5, 0, 246);
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(9, 9, 121, 1) 35%,
+    rgba(0, 21, 255, 1) 100%
+  );
 }
 p {
   padding: 10px;
@@ -76,7 +85,7 @@ p:nth-child(2) {
 }
 
 .employee-image {
-  border-radius: 25% 10%;
+  border-radius: 25% 25%;
 }
 
 .text-wrap-img {
@@ -84,12 +93,23 @@ p:nth-child(2) {
   margin: 5px;
 }
 
-.employeeEmail::before {
+.employeeEmail:before {
   content: "Email:";
   margin-right: 5px;
 }
 
-.employeeCompany::before {
+.employeeCompany:before {
   content: "Company:";
+  margin-right: 5px;
+}
+
+.work-order-deadline {
+  text-align: right;
+  margin-right: 5px;
+  font-weight: bold;
+}
+
+.sort-by-latest:before {
+  content: "Sort by latest:";
   margin-right: 5px;
 }
