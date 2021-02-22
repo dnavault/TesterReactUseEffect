@@ -3,17 +3,17 @@ body {
   font-family: "Arial";
   overflow-x: hidden;
   margin: 10px;
-  font-size: 9pt;
+  font-size: 9px;
 }
 #root {
   width: 100vw;
-  height: 75vh;
+  height: 175vh;
   color: #2a2223;
   margin: 0;
 }
 h1 {
   color: black;
-  font-size: 50px;
+  font-size: 9pt;
   text-align: center;
   margin: 0;
 }
@@ -34,24 +34,27 @@ h2 {
   padding: 10px;
 }
 .work-order {
+  background-color: rgba(36,19, 0,0.5);
   display: grid;
-  grid-gap: 150px;
+  grid-gap: 50px;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   margin: 20px auto;
-  max-width: 900px;
+  max-width: 300px;
   font-size: 9pt;
   padding: 15px;
 }
 
 .work-order-header {
   display: flex;
-  justify-content: flex-end;
+  flex-direction:column;
+  justify-content: space-evenly;
   margin-left: 5px;
   margin-top: 15px;
+  
 }
 
 .seperator {
-  flex-grow: 1;
+  min-width:25px;
 }
 
 .work-order-name {
@@ -60,30 +63,23 @@ h2 {
 
 .work-order-deadline {
   margin-right: 5px;
-  font-weight: bold;
+  align-items: flex-end;
 }
 
 .work-order-list {
   color: white;
-  font-weight: bold;
   background: #bcc8c1;
-  height: 200px;
-  border-radius: 4px;
-  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
-  background: rgb(5, 0, 246);
-  background: linear-gradient(
-    90deg,
-    rgba(2, 0, 36, 1) 0%,
-    rgba(9, 9, 121, 1) 35%,
-    rgba(0, 21, 255, 1) 65%
-  );
+  border-radius: 10px;
+  box-shadow: 2px 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+  background: rgb(36, 19, 0);
+  overflow:hidden;
 }
 p {
   padding: 10px;
 }
 p:nth-child(2) {
   padding: 10px;
-  font-size: 18px;
+  font-size: 9pt;
   display: block; /* or inline-block */
   text-overflow: ellipsis;
   word-wrap: no-wrap;
@@ -91,23 +87,16 @@ p:nth-child(2) {
   max-height: 10em;
   line-height: 1.2em;
 }
-@media (max-width: 580px) {
-  .work-order-list {
-    align-self: center;
-    justify-self: center;
-    font-size: 0.9rem;
-    margin: 1rem;
-    width: 300px;
-  }
-}
+
+
 
 .employee-image {
-  border-radius: 25% 25%;
+  border-radius: 25% 15px 25%;
 }
 
 .text-wrap-img {
   float: left;
-  margin: 5px;
+  padding: 0px 5px 5px 5px;
 }
 
 .employeeEmail:before {
@@ -127,4 +116,5 @@ p:nth-child(2) {
 
 .employeeItem {
   text-align: left;
+  margin-left:25px;
 }

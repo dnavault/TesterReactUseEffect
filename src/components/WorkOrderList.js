@@ -57,11 +57,10 @@ export default function WorkOrderList() {
         {workorders
           .filter((data) => {
             if (filter === null) {
-              console.log(data);
               return data;
             } else {
               if (data.name.toLowerCase().includes(filter.toLowerCase())) {
-                console.log(data);
+               console.log(data);
                 return data;
               }
             }
