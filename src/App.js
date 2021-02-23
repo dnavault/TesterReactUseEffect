@@ -5,7 +5,6 @@ import WorkOrderList from "./components/WorkOrderList";
 function App() {
   return (
     <div className="App">
-      {console.log(WorkOrderList)}
       <div>
         <h1>Work Orders</h1>
         <WorkOrderList />

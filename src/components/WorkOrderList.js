@@ -3,6 +3,7 @@ import axios from "axios";
 import WorkOrder from "./WorkOrder";
 import Switch from "@material-ui/core/Switch";
 import ReactAG from "../components/ReactAG";
+import { AgGridColumn, AgGridReact } from "ag-grid-react";
 
 export default function WorkOrderList() {
   const [workorders, setWorkOrders] = useState([]);
@@ -30,7 +31,6 @@ export default function WorkOrderList() {
       .get(`https://api.hatchways.io/assessment/work_orders`)
       .then((response) => {
         setWorkOrders(response.data.orders);
-        console.log("called");
       })
       .catch((error) => console.log(error));
   };
@@ -39,7 +39,9 @@ export default function WorkOrderList() {
   return (
     <>
       <div>
-        <ReactAG rowData={workorders} />
+        <ReactAG rowData={workorders}>
+          <AgGridColumn field="name"></AgGridColumn>
+        </ReactAG>
       </div>
       <div>
         <input
@@ -64,7 +66,7 @@ export default function WorkOrderList() {
               return data;
             } else {
               if (data.name.toLowerCase().includes(filter.toLowerCase())) {
-                console.log(data);
+                //console.log(data);
                 return data;
               }
             }
