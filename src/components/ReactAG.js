@@ -30,3 +30,4 @@ const ReactAG = () => {
     </div>
   );
 };
+export default ReactAG

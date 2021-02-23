@@ -1,6 +1,7 @@
 import React from "react";
 import Employee from "./Employee";
 
+
 const WorkOrder = ({ workorder }) => {
   const epochDeadline = workorder.deadline;
   let dateWorkOrder = new Date(0);
@@ -16,7 +17,7 @@ const WorkOrder = ({ workorder }) => {
             {dateWorkOrder.toLocaleString()}
           </div>
         </div>
-        <p>{workorder.description}</p>
+        <div>{workorder.description}</div>
         <Employee className="employeeItem" employeeId={workorder.workerId} />
       </div>
     </>

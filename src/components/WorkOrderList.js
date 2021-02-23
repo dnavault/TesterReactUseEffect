@@ -29,6 +29,7 @@ export default function WorkOrderList() {
       .get(`https://api.hatchways.io/assessment/work_orders`)
       .then((response) => {
         setWorkOrders(response.data.orders);
+        console.log("called");
       })
       .catch((error) => console.log(error));
   };
@@ -60,7 +61,7 @@ export default function WorkOrderList() {
               return data;
             } else {
               if (data.name.toLowerCase().includes(filter.toLowerCase())) {
-               console.log(data);
+                console.log(data);
                 return data;
               }
             }

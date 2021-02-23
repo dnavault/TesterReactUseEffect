@@ -34,19 +34,12 @@ h2 {
   padding: 10px;
 }
 .work-order {
-  background-color: #293a8a;
-  background-image: linear-gradient(
-      to right,
-      transparent 50%,
-      rgba(255, 255, 255, 0.5) 50%
-    ),
-    linear-gradient(to bottom, transparent 50%, rgba(255, 255, 255, 0.5) 50%);
-  background-size: 20px 20px;
   display: grid;
   grid-gap: 50px;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   margin: 20px auto;
-  max-width: 300px;
+  max-width: 150px;
+  overflow: ellipsis;
   font-size: 9pt;
   padding: 15px;
 }
@@ -121,4 +114,23 @@ p:nth-child(2) {
 .employeeItem {
   text-align: left;
   margin-left: 25px;
+}
+
+.fade {
+  position: relative;
+  height: 3.6em; /* exactly three lines */
+}
+.fade:after {
+  content: "";
+  text-align: right;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 70%;
+  height: 1.2em;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 1) 50%
+  );
 }
