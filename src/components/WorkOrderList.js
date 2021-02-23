@@ -39,11 +39,6 @@ export default function WorkOrderList() {
   return (
     <>
       <div>
-        <ReactAG rowData={workorders}>
-          <AgGridColumn field="name"></AgGridColumn>
-        </ReactAG>
-      </div>
-      <div>
         <input
           class="input-name"
           type="text"

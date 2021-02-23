@@ -5,10 +5,7 @@ import WorkOrderList from "./components/WorkOrderList";
 function App() {
   return (
     <div className="App">
-      <div>
-        <h1>Work Orders</h1>
-        <WorkOrderList />
-      </div>
+      <div></div>
     </div>
   );
 }
