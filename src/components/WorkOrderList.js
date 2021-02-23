@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import WorkOrder from "./WorkOrder";
 import Switch from "@material-ui/core/Switch";
+import ReactAG from "../components/ReactAG";
 
 export default function WorkOrderList() {
   const [workorders, setWorkOrders] = useState([]);
@@ -37,7 +38,9 @@ export default function WorkOrderList() {
 
   return (
     <>
-      {console.log(checked)}
+      <div>
+        <ReactAG rowData={workorders} />
+      </div>
       <div>
         <input
           class="input-name"
